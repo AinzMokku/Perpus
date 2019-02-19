@@ -31,7 +31,7 @@ Form Pengembalian
                     </div>
                     <div class="col-sm-4"></div>
                 </div>
-            </form>
+            </form>  
         @else
         <form id="frmPinjam" action="{{ url('trans/pengembalian/save') }}" method="post">
             @csrf
@@ -84,11 +84,43 @@ Form Pengembalian
             </table>
             <!--- Footer Box -->
             <div class="box-footer">
-                <button type="submit" class="btn btn-success btn-flat">SAVE</button>
+                <button onclick="return Confirm_Save(this)"  type="submit" class="btn btn-success btn-flat">SAVE</button>
                 <a href="{{ url('trans/pengembalian') }}"><button type="button" class="btn btn-warning btn-flat">CANCEL</button></a>
             </div> 
         </form>                                 
         @endif
     </div>
 </div>
+
+<div class="box">
+    <div class="box-body">
+        <table id="example1" class="table table-bordered table-striped">
+            <thead>
+            <tr>
+                  <th>No Pinjam</th>
+                  <th>Nama Anggota</th>
+                  <th>Judul Buku</th>
+                  <th>Tanggal Pinjam</th>
+                  <th>Tanggal Kembali</th>
+                  <th>Denda</th>
+                  <th>Status</th>
+            </tr>
+            </thead>
+            <tbody>
+                @foreach($show as $rsShow)
+                <tr>
+                    <td>{{ $rsShow->no_pinjam }}</td>
+                    <td>{{ $rsShow->nama }}</td>
+                    <td>{{ $rsShow->judul }}</td>
+                    <td>{{ $rsShow->tgl_pinjam }}</td>
+                    <td>{{ $rsShow->tgl_kembali }}</td>
+                    <td>{{ $rsShow->denda }}</td>
+                    <td>{{ ($rsShow->status==1 ? "Dipinjam" : "" ) }}</td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
+</div>
+
 @stop

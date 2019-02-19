@@ -56,7 +56,7 @@ class BukuControl extends Controller
                 'kd_kategori'   => $req->get('kategori'),
                 'halaman'       => $req->get('halaman'),
                 'edisi'         => $req->get('edisi'),
-                'ISBN'          => $req->get('ISBN'),
+                'isbn'          => $req->get('isbn'),
                 'cover'         => $nama_foto,
             ]);
             $buku->save();
@@ -71,7 +71,7 @@ class BukuControl extends Controller
                 'kd_kategori'   => $req->get('kategori'),
                 'halaman'       => $req->get('halaman'),
                 'edisi'         => $req->get('edisi'),
-                'ISBN'          => $req->get('ISBN'),
+                'isbn'          => $req->get('isbn'),
                 'cover'         => $nama_foto,
             ]);
 

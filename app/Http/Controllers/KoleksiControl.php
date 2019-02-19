@@ -52,4 +52,17 @@ class KoleksiControl extends Controller
    
         return redirect('koleksi');
     }
-}
+
+    function edit($kd_koleksi){
+     $koleksi = MKoleksi::where("kd_koleksi",$kd_koleksi)->first();
+     $buku = MBuku::all();
+     $rak = MRak::all();
+     return view('form.frm_koleksi',compact('koleksi','buku','rak'));
+    }
+
+     function hapus($ikd_koleksid){
+         $koleksi = MKoleksi::where("kd_koleksi",$kd_koleksi);        
+         $koleksi->delete();
+         return redirect('koleksi');
+     }
+ }

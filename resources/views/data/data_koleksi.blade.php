@@ -40,7 +40,7 @@ active
                     <td>{{ ($rsKoleksi->status==0 ? "Tersedia" : ($rsKoleksi->status==1 ? "Dipinjam" : ($rsKoleksi->status==2 ? "Rusak" : "Hilang"))) }}</td>
                     <td>
                     <a href="{{ url('koleksi/edit',$rsKoleksi->kd_koleksi) }}"><button type="button" class="btn bg-yellow btn-flat"><i class="fa fa-pencil"></i></button></a>
-                    <a onclick="return Confirm_Delete(this)" link="/koleksi/delete/{{ $rsKoleksi->kd_koleksi }}"><button type="button" class="btn bg-red btn-flat"><i class="fa fa-trash"></i></button></a>
+                    <a href="{{ url('koleksi/delete',$rsKoleksi->kd_koleksi) }}"><button type="button" class="btn bg-red btn-flat"><i class="fa fa-trash"></i></button></a>
                     </td>
                 </tr>
                 @endforeach

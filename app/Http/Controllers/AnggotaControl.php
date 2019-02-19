@@ -51,7 +51,7 @@ class AnggotaControl extends Controller
                 'user_name'     => $req->get('user_name'),
                 'user_password' => md5($req->get('user_password')),
                 'foto'          => $nama_foto,
-                'status'        => 1,
+                'status'        => 3,
             ]);
             $anggota->save();
         } else {
@@ -67,7 +67,9 @@ class AnggotaControl extends Controller
                 'email'         => $req->get('email'),
                 'user_name'     => $req->get('user_name'),
                 'user_password' => $req->get('user_password')!="" ? md5($req->get('user_password')) : $req->get('old_password'),
-                'status'        => 1,
+                'foto'          => $nama_foto,
+                'status'        => 3,
+
             ]);
 
         }
@@ -81,5 +83,10 @@ class AnggotaControl extends Controller
         $anggota = MAnggota::where("kd_anggota",$kd_anggota);
         $anggota->delete();
         return redirect('anggota');
+    }
+
+    function print_kartu($kd_anggota){
+        $anggota = MAnggota::where('kd_anggota',$kd_anggota)->first();
+        return view('form.frm_kartu_anggota',compact('anggota'));        
     }
 }

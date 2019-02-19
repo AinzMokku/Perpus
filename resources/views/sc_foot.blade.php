@@ -22,6 +22,8 @@
 <!-- Sweet Alert -->
 <script src="{{ asset('component/sweetalert/sweetalert2.min.js') }}"></script>
 <!-- AdminLTE App -->
+<script src="{{ asset('js/jquery.PrintArea.js') }}"></script>
+<!-- AdminLTE App -->
 <script src="{{ asset('js/adminlte.min.js') }}"></script>
 <!-- costum -->
 <script src="{{ asset('js/costum.js') }}"></script>
@@ -29,3 +31,4 @@
 <!-- Optionally, you can add Slimscroll and FastClick plugins.
      Both of these plugins are recommended to enhance the
      user experience. -->
+     

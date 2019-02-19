@@ -118,18 +118,19 @@ Form Anggota
                         <label for="password" class="col-sm-2 control-label">Password</label>
                         <div class="col-sm-10">
                             <div class="input-group">
-                                <span class="input-group-addon">@</span>
+                                <span class="input-group-addon"><i class="fa fa-lock"></i></span>             
                                 <input type="password" class="form-control" id="password" placeholder="Password" name="user_password">
                                 <input type="hidden" value="{{ $anggota['user_password'] }}" name="old_password">
                             </div>
                         </div>
                     </div>
                     <div class="box-footer">
-                        <button type="submit" class="btn btn-primary pull-right">SAVE</button>
+                        <button onclick="return Confirm_Save(this)" type="submit" class="btn btn-primary pull-right">SAVE</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </form>
+
 @stop

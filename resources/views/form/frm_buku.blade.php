@@ -121,7 +121,7 @@ Form Buku
                         </div>
                     </div>
                     <div class="box-footer">
-                        <button type="submit" class="btn btn-primary pull-right">SAVE</button>
+                        <button onclick="return Confirm_Save(this)"  type="submit" class="btn btn-primary pull-right">SAVE</button>
                     </div>
                 </div>
             </div>

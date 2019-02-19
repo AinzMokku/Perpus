@@ -37,6 +37,7 @@ active
                     <td>{{ $rsAng['alamat']." ".$rsAng['kota'] }}</td>
                     <td>{{ $rsAng['email'] }}</td>
                     <td>
+                    <a href="{{ url('/report/kartu_anggota',$rsAng['kd_anggota']) }}"><button type="button" class="btn bg-green btn-flat"><i class="fa fa-print"></i></button></a>
                     <a href="{{ url('anggota/edit',$rsAng['kd_anggota']) }}"><button type="button" class="btn bg-yellow btn-flat"><i class="fa fa-pencil"></i></button></a>
                     <a onclick="return Confirm_Delete(this)" link="/anggota/delete/{{ $rsAng->kd_anggota }}"><button type="button" class="btn bg-red btn-flat"><i class="fa fa-trash"></i></button></a>
                     </td>

@@ -1,7 +1,7 @@
 @extends('tamplate')
 
 @section('judul')
-Data Anggota
+Data Buku
 @stop
 
 @section('ac-buku')
@@ -42,7 +42,7 @@ active
                     <td>{{ $rsBuku->ISBN }}</td>
                     <td>
                     <a href="{{ url('buku/edit',$rsBuku->kd_buku) }}"><button type="button" class="btn bg-yellow btn-flat"><i class="fa fa-pencil"></i></button></a>
-                    <a onclick="return Confirm_Delete(this)" link="/buku/delete/{{ $rsBuku->kd_buku }}"><button type="button" class="btn bg-red btn-flat"><i class="fa fa-trash"></i></button></a>
+                    <a href="{{ url('buku/delete',$rsBuku->kd_buku) }}"><button type="button" class="btn bg-red btn-flat"><i class="fa fa-trash"></i></button></a>
                     </td>
                 </tr>
                 @endforeach

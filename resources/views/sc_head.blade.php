@@ -19,6 +19,8 @@
   <link rel="stylesheet" href="{{ asset('component/sweetalert/sweetalert2.min.css') }}">
 <!-- Theme style -->
 <link rel="stylesheet" href="{{ asset('css/AdminLTE.min.css') }}">
+<!-- Animate style -->
+<link rel="stylesheet" href="{{ asset('css/animate.min.css') }}">
 <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
     page. However, you can choose any other skin. Make sure you
     apply the skin class to the body tag so the changes take effect. -->

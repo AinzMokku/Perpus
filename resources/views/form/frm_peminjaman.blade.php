@@ -76,6 +76,35 @@ Form Peminjaman
 </div>
 
 
+
+<div class="box">
+    <div class="box-body">
+        <table id="example1" class="table table-bordered table-striped">
+            <thead>
+            <tr>
+                <th>No Induk Buku</th>
+                <th>Judul</th>
+                <th>Nama Kategori</th>
+                <th>Nama Rak</th>
+                <th>Status</th>
+            </tr>
+            </thead>
+            <tbody>
+                @foreach($show as $rsShow)
+                <tr>
+                    <td>{{ $rsShow->no_induk_buku }}</td>
+                    <td>{{ $rsShow->judul }}</td>
+                    <td>{{ $rsShow->nama_kategori }}</td>
+                    <td>{{ $rsShow->nama_rak }}</td>
+                    <td>{{ ($rsShow->status==0 ? "Tersedia" : "" ) }}</td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
 @if($buku!="")
 <!-- List Data Buku -->
 

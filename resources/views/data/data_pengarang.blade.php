@@ -36,7 +36,7 @@ active
                     <td>{{ $rsPengarang->telp }}</td>
                     <td>
                     <a href="{{ url('pengarang/edit',$rsPengarang->kd_pengarang) }}"><button type="button" class="btn bg-yellow btn-flat"><i class="fa fa-pencil"></i></button></a>
-                    <a onclick="return Confirm_Delete(this)" link="/pengarang/delete/{{ $rsPengarang->kd_pengarang }}"><button type="button" class="btn bg-red btn-flat"><i class="fa fa-trash"></i></button></a>
+                    <a href="{{ url('pengarang/delete',$rsPengarang->kd_pengarang) }}"><button type="button" class="btn bg-red btn-flat"><i class="fa fa-trash"></i></button></a>
                     </td>
                 </tr>
                 @endforeach

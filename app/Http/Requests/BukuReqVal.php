@@ -25,7 +25,7 @@ class BukuReqVal extends FormRequest
     {
         return [
             'judul' => 'required',
-            'tempat' => 'required',
+            'tempat_terbit' => 'required',
             'tahun_terbit' => 'required',
             'halaman' => 'required',
         ];

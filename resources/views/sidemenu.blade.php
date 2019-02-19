@@ -33,7 +33,7 @@
     <li class="header">HEADER</li>
     <!-- Optionally, you can add icons to the links -->
     <li class="@yield('ac-dash')"><a href="{{ url('/dashboard') }}"><i class="fa fa-link"></i> <span>Dashboard</span></a></li>
-    <li class="treeview @yield('ac-buku')">
+    <li class="treeview @yield('ac-anggota')">
       <a href="#"><i class="fa fa-users"></i> <span>Anggota</span>
         <span class="pull-right-container">
             <i class="fa fa-angle-left pull-right"></i>
@@ -44,7 +44,7 @@
         <li><a href="{{ url('/anggota/add') }}">New Data</a></li>
       </ul>
     </li>
-    <li class="treeview @yield('ac-anggota')">
+    <li class="treeview @yield('ac-buku')">
       <a href="#"><i class="fa fa-book"></i> <span>Buku</span>
         <span class="pull-right-container">
             <i class="fa fa-angle-left pull-right"></i>
@@ -118,7 +118,23 @@
       </a>
       <ul class="treeview-menu">
         <li><a href="{{ url('report/anggota') }}" target="blank">Laporan Anggota</a></li>
+        <li><a href="{{ url('report/buku') }}" target="blank">Laporan Buku</a></li>
+        <li><a href="{{ url('report/buku_dipinjam') }}" target="blank">Laporan Buku Dipinjam</a></li>
+        <li><a href="{{ url('report/buku_rusak') }}" target="blank">Laporan Buku Rusak</a></li>
+        <li><a href="{{ url('report/buku_hilang') }}" target="blank">Laporan Buku Hilang</a></li>
+        <li><a href="{{ url('report/buku_tersedia') }}" target="blank">Laporan Buku Tersedia</a></li>
         <li><a href="{{ url('trans/pengembalian') }}">Pengembalian</a></li>
+      </ul>
+    </li>
+    </li><li class="treeview @yield('ac-user')">
+      <a href="#"><i class="fa fa-book"></i> <span>User</span>
+        <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+      </a>
+      <ul class="treeview-menu">
+        <li><a href="{{ url('user/add') }}" target="blank">Add New</a></li>
+        <li><a href="{{ url('user') }}">Data User</a></li>
       </ul>
     </li> 
   </ul>
