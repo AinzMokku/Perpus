@@ -95,7 +95,7 @@ Form user
                 </div>
 
                     <div class="box-footer">
-                        <button onclick="return Confirm_Save(this)"  type="submit" class="btn btn-primary pull-right">SAVE</button>
+                        <button  type="submit" class="btn btn-primary pull-right">SAVE</button>
                     </div>
                 </div>
             </div>

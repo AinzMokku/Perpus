@@ -18,7 +18,7 @@
 <body class="hold-transition">
 <div class="register-box">
   <div class="register-logo">
-    <a href="../../index2.html"><b>Perpus</b>takaan</a>
+    <a style="color: black;" href="{{ url('/dashboard') }}"><b>Perpus</b>WEC</a>
   </div>
 
   <div class="register-box-body">
@@ -90,4 +90,6 @@
   <!-- /.form-box -->
 </div>
 <!-- /.register-box -->
+
+@include('sc_foot')
 @endsection

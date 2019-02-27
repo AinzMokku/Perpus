@@ -95,7 +95,7 @@ class TransaksiControl extends Controller
     }
 
     function pengembalian(Request $req){
-        $show = DB::select('select tb_peminjaman.no_pinjam,tb_anggota.nama,tb_buku.judul,tb_peminjaman.tgl_pinjam,tb_peminjaman.tgl_kembali,tb_peminjaman.denda,tb_peminjaman.status from tb_peminjaman,tb_anggota,tb_buku,tb_koleksi_buku where tb_peminjaman.no_anggota=tb_anggota.no_anggota and tb_peminjaman.no_induk_buku=tb_koleksi_buku.no_induk_buku and tb_koleksi_buku.kd_buku=tb_buku.kd_buku and tb_peminjaman.status = 1');
+        $show = DB::select('select tb_peminjaman.no_pinjam,tb_anggota.nama,tb_buku.judul,tb_peminjaman.tgl_pinjam,tb_peminjaman.tgl_kembali,tb_peminjaman.denda,tb_peminjaman.status from tb_peminjaman,tb_anggota,tb_buku,tb_koleksi_buku where tb_peminjaman.no_anggota=tb_anggota.no_anggota and tb_peminjaman.no_induk_buku=tb_koleksi_buku.no_induk_buku and tb_koleksi_buku.kd_buku=tb_buku.kd_buku and tb_peminjaman.status = 0');
         if(count($req->all())==0){
             $pinjam ="";
         } else {

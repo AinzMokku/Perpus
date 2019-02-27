@@ -14,6 +14,10 @@ class AnggotaControl extends Controller
         $anggota = MAnggota::all();
         return view('data.data_anggota',compact('anggota'));
     }
+    function liat(){
+        $anggota = DB::select('select * from tb_anggota where month(NOW())=MONTH(CURDATE())');
+        return view('dashboard',compact('anggota'));
+    }
 
     function add(){
         $anggota = MGlobal::Get_Row_Empty('tb_anggota');

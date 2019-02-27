@@ -20,6 +20,7 @@ Form Koleksi
 
 <form id="frmKoleksi" class="form-horizontal" action="{{ url('koleksi/save') }}" method="post" enctype="multipart/form-data">
     @csrf
+                            <input type="hidden" id="kd_koleksi" name="kd_koleksi" value="{{ $koleksi['kd_koleksi'] }}">
     <div class="row">
         <div class="fForm col-md-12">
             <div class="box">
@@ -30,10 +31,10 @@ Form Koleksi
                     <div class="form-group">
                         <label for="kd_buku" class="col-sm-2 control-label">Buku</label>
                         <div class="col-sm-10">
-                            <select class="form-control" name="kd_buku" value="{{ $koleksi['kd_buku'] }}">
+                            <select class="form-control" name="kd_buku"  value="{{ $koleksi['kd_buku'] }}">   
                                 <option value="">- Pilih Buku -</option>
                                 @foreach($buku as $rsBuku)
-                                <option value="{{ $rsBuku['kd_buku'] }}">{{ $rsBuku['judul'] }}</option>
+                                <option {{ $koleksi['kd_buku']==$rsBuku['kd_buku'] ? 'selected' : "" }} value="{{ $rsBuku['kd_buku'] }}">{{ $rsBuku['judul'] }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -53,8 +54,8 @@ Form Koleksi
                             <div class="input-group">
                                 <select class="form-control" name="akses" value="{{ $koleksi['akses'] }}">
                                     <option value="">- Pilih Akses -</option>
-                                    <option value="Boleh Dipinjam">Boleh Dipinjam</option>
-                                    <option value="Baca di Tempat">Baca di Tempat</option>
+                                    <option {{ $koleksi['akses']=='Boleh Dipinjam' ? 'selected' : '' }} value="Boleh Dipinjam">Boleh Dipinjam</option>
+                                    <option {{ $koleksi['akses']=='Baca di Tempat' ? 'selected' : '' }} value="Baca di Tempat">Baca di Tempat</option>
                                 </select>
                             </div>
                         </div>
@@ -65,7 +66,7 @@ Form Koleksi
                             <select class="form-control" name="kd_rak" value="{{ $koleksi['kd_rak'] }}">
                                 <option value="">- Pilih Rak -</option>
                                 @foreach($rak as $rsRak)
-                                <option value="{{ $rsRak['kd_rak'] }}">{{ $rsRak['nama_rak'] }}</option>
+                                <option {{ $koleksi['kd_rak']==$rsRak['kd_rak'] ? 'selected' : "" }}  value="{{ $rsRak['kd_rak'] }}">{{ $rsRak['nama_rak'] }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -81,19 +82,21 @@ Form Koleksi
                         <div class="col-sm-10">
                             <select class="form-control" name="status" value="{{ $koleksi['status'] }}">
                                 <option value="">- Pilih Status -</option>
-                                <option value="0">Tersedia</option>
-                                <option value="1">Dipinjam</option>
-                                <option value="2">Rusak</option>
-                                <option value="3">Hilang</option>
+                                <option  {{ $koleksi['status']=='0' ? 'selected' : '' }}  value="0">Tersedia</option>
+                                <option  {{ $koleksi['status']=='1' ? 'selected' : '' }}  value="1">Dipinjam</option>
+                                <option  {{ $koleksi['status']=='2' ? 'selected' : '' }}  value="2">Rusak</option>
+                                <option  {{ $koleksi['status']=='3' ? 'selected' : '' }}  value="3">Hilang</option>
                             </select>
                         </div>
                     </div>
+                    @if($koleksi['kd_koleksi']=="")
                     <div class="form-group">
                         <label for="jumlah" class="col-sm-2 control-label">Jumlah Buku</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" id="jumlah" placeholder="Jumlah Buku" name="jumlah" value="">
                         </div>
-                    </div>     
+                    </div>
+                    @endif   
                 </div>
 
                 <div class="box-footer">

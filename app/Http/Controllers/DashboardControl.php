@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use App\MGlobal;
 use App\MBuku;
 use App\MPeminjaman;
+use App\MKoleksi;
 
 class DashboardControl extends Controller
 {
@@ -18,8 +19,14 @@ class DashboardControl extends Controller
         $jbuku = $buku[0]->jumlah;
         $anggota = DB::select('select count(*) as jumlah from tb_anggota');
         $janggota = $anggota[0]->jumlah;
-        $terpinjam = DB::select('select count(*) as jumlah from tb_peminjaman where status = 0');
+        $tersedia = DB::select('select count(*) as jumlah from tb_koleksi_buku where status = 0');
+        $jtersedia = $tersedia[0]->jumlah;
+        $terpinjam = DB::select('select count(*) as jumlah from tb_koleksi_buku where status = 1');
         $jterpinjam = $terpinjam[0]->jumlah;
-        return view('dashboard', compact('jbuku','janggota','Dbuku','jterpinjam'));
+        $rusak = DB::select('select count(*) as jumlah from tb_koleksi_buku where status = 2');
+        $jrusak = $rusak[0]->jumlah;
+        $hilang = DB::select('select count(*) as jumlah from tb_koleksi_buku where status = 3');
+        $jhilang = $hilang[0]->jumlah;
+        return view('dashboard', compact('jbuku','janggota','Dbuku','jtersedia','jterpinjam','jrusak','jhilang'));
     }
 }

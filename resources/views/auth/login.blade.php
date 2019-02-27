@@ -1,15 +1,26 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 2 | Log in</title>
-    @include('sc_head')
-</head>
-<body class="hold-transition login-page">
+@extends('layouts.app')
+<style>
+  body{
+    background-image:url('img/bg-login.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    animation-delay: -1s;
+    
+  }
+  .login-box{
+    color: white;
+    animation: fadeIn;
+    animation-duration: 8s;
+  }
+
+</style>
+@include('sc_head')
+@section('content')
+<body class="hold-transition">
 <div class="login-box">
   <div class="login-logo">
-    <a href="../../index2.html"><b>Perpus</b>takaan</a>
+    <a style="color: black;" href="{{ url('/dashboard') }}"><b>Perpus</b>WEC</a>
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
@@ -54,5 +65,5 @@
   <!-- /.login-box-body -->
 </div>
 @include('sc_foot')
-</body>
-</html>
+@endsection
+

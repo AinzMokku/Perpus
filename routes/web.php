@@ -62,7 +62,8 @@ Route::group(['middleware' => ['isAdmin']], function() {
 
     Route::get('user','UsersControl@index');
     Route::get('user/add','UsersControl@add');
-    Route::get('user/edit/{$id}','UsersControl@edit');
+    Route::get('user/edit/{id}','UsersControl@edit');
+    Route::get('user/delete/{id}','UsersControl@delete');
     Route::post('user/save','UsersControl@save');
 
 });
@@ -101,3 +102,6 @@ Auth::routes();
 Route::get('/dashboard', 'HomeController@index')->name('home');
 Route::get('/dashboard','DashboardControl@jumlah_buku');
 
+Route::get('/mobile/get_buku','MobileControl@get_Buku');
+Route::get('/mobile/get_koleksi/{kd_buku}','MobileControl@get_Koleksi');
+Route::post('/mobile/registrasi','MobileControl@registrasi');

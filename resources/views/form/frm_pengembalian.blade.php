@@ -115,7 +115,7 @@ Form Pengembalian
                     <td>{{ $rsShow->tgl_pinjam }}</td>
                     <td>{{ $rsShow->tgl_kembali }}</td>
                     <td>{{ $rsShow->denda }}</td>
-                    <td>{{ ($rsShow->status==1 ? "Dipinjam" : "" ) }}</td>
+                    <td>{{ ($rsShow->status==0 ? "Dipinjam" : "" ) }}</td>
                 </tr>
                 @endforeach
             </tbody>

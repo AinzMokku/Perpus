@@ -21,6 +21,7 @@ class KoleksiControl extends Controller
         $koleksi = MGlobal::Get_Row_Empty('tb_koleksi_buku');
         $buku = MBuku::all();
         $rak = MRak::all();
+        // var_dump($koleksi['status']);
         return view('form.frm_koleksi',compact('buku','koleksi','rak'));        
     }
 
@@ -29,6 +30,7 @@ class KoleksiControl extends Controller
         $buku = MBuku::where('kd_buku',$req->get('kd_buku'))->first();
         $kategori = MKategori::where('kd_kategori',$buku['kd_kategori'])->first();
 
+        if($req->get('kd_koleksi')==""){
         for($i=1;$i<=$req->get('jumlah');$i++){
 
             $newid = DB::select('SHOW TABLE STATUS LIKE "tb_koleksi_buku"');
@@ -49,8 +51,20 @@ class KoleksiControl extends Controller
             $koleksi->save();
         
             };
-   
-        return redirect('koleksi');
+        } else {
+            $koleksi = MKoleksi::where("kd_koleksi",$req->get("kd_koleksi"));
+            $koleksi->update([
+                'kd_buku'       => $req->get('kd_buku'),
+                'kd_user'       => 1,
+                'tgl_pengadaan' => date("Y-m-d",strtotime($req->get('tgl_pengadaan'))),
+                'akses'         => $req->get('akses'),
+                'kd_rak'        => $req->get('kd_rak'),
+                'sumber'        => $req->get('sumber'),
+                'status'        => $req->get('status'),
+
+            ]);
+        }
+       return redirect('koleksi');
     }
 
     function edit($kd_koleksi){
@@ -59,10 +73,4 @@ class KoleksiControl extends Controller
      $rak = MRak::all();
      return view('form.frm_koleksi',compact('koleksi','buku','rak'));
     }
-
-     function hapus($ikd_koleksid){
-         $koleksi = MKoleksi::where("kd_koleksi",$kd_koleksi);        
-         $koleksi->delete();
-         return redirect('koleksi');
-     }
  }

@@ -69,7 +69,7 @@ class ReportControl extends Controller
     }
     
     function rpt_buku_dipinjam(){
-        $buku = DB::select('select tb_koleksi_buku.no_induk_buku,tb_buku.judul,tb_kategori.nama_kategori,tb_rak.nama_rak,tb_buku.ISBN,tb_koleksi_buku.status from tb_buku,tb_koleksi_buku,tb_kategori,tb_rak where tb_buku.kd_kategori=tb_kategori.kd_kategori and tb_buku.kd_buku=tb_koleksi_buku.kd_buku and tb_koleksi_buku.kd_rak=tb_rak.kd_rak and status = 1');
+        $buku = DB::select('select tb_koleksi_buku.no_induk_buku,tb_buku.judul,tb_kategori.nama_kategori,tb_rak.nama_rak,tb_buku.ISBN,tb_koleksi_buku.STATUS,tb_peminjaman.tgl_pinjam from tb_buku,tb_koleksi_buku,tb_kategori,tb_rak,tb_peminjaman where tb_buku.kd_kategori=tb_kategori.kd_kategori and tb_buku.kd_buku=tb_koleksi_buku.kd_buku and tb_koleksi_buku.kd_rak=tb_rak.kd_rak AND tb_koleksi_buku.no_induk_buku=tb_peminjaman.no_induk_buku and tb_koleksi_buku.status = 1 and month(NOW())=MONTH(CURDATE())');
         $content = view('report.rpt_buku_dipinjam',compact('buku'));
         $pdf = new MPdf([
             'orientation'=>"L",
@@ -80,7 +80,7 @@ class ReportControl extends Controller
     }
     
     function rpt_buku_hilang(){
-        $buku = DB::select('select tb_koleksi_buku.no_induk_buku,tb_buku.judul,tb_kategori.nama_kategori,tb_rak.nama_rak,tb_buku.ISBN,tb_koleksi_buku.status from tb_buku,tb_koleksi_buku,tb_kategori,tb_rak where tb_buku.kd_kategori=tb_kategori.kd_kategori and tb_buku.kd_buku=tb_koleksi_buku.kd_buku and tb_koleksi_buku.kd_rak=tb_rak.kd_rak and status = 3');
+        $buku = DB::select('select tb_koleksi_buku.no_induk_buku,tb_buku.judul,tb_kategori.nama_kategori,tb_rak.nama_rak,tb_buku.ISBN,tb_koleksi_buku.STATUS,tb_peminjaman.tgl_pinjam from tb_buku,tb_koleksi_buku,tb_kategori,tb_rak,tb_peminjaman where tb_buku.kd_kategori=tb_kategori.kd_kategori and tb_buku.kd_buku=tb_koleksi_buku.kd_buku and tb_koleksi_buku.kd_rak=tb_rak.kd_rak AND tb_koleksi_buku.no_induk_buku=tb_peminjaman.no_induk_buku and tb_koleksi_buku.status = 3 and month(NOW())=MONTH(CURDATE())');
         $content = view('report.rpt_buku_hilang',compact('buku'));
         $pdf = new MPdf([
             'orientation'=>"L",
@@ -91,7 +91,7 @@ class ReportControl extends Controller
     }
     
     function rpt_buku_rusak(){
-        $buku = DB::select('select tb_koleksi_buku.no_induk_buku,tb_buku.judul,tb_kategori.nama_kategori,tb_rak.nama_rak,tb_buku.ISBN,tb_koleksi_buku.status from tb_buku,tb_koleksi_buku,tb_kategori,tb_rak where tb_buku.kd_kategori=tb_kategori.kd_kategori and tb_buku.kd_buku=tb_koleksi_buku.kd_buku and tb_koleksi_buku.kd_rak=tb_rak.kd_rak and status = 2');
+        $buku = DB::select('select tb_koleksi_buku.no_induk_buku,tb_buku.judul,tb_kategori.nama_kategori,tb_rak.nama_rak,tb_buku.ISBN,tb_koleksi_buku.STATUS,tb_peminjaman.tgl_pinjam from tb_buku,tb_koleksi_buku,tb_kategori,tb_rak,tb_peminjaman where tb_buku.kd_kategori=tb_kategori.kd_kategori and tb_buku.kd_buku=tb_koleksi_buku.kd_buku and tb_koleksi_buku.kd_rak=tb_rak.kd_rak AND tb_koleksi_buku.no_induk_buku=tb_peminjaman.no_induk_buku and tb_koleksi_buku.status = 2 and month(NOW())=MONTH(CURDATE())');
         $content = view('report.rpt_buku_rusak',compact('buku'));
         $pdf = new MPdf([
             'orientation'=>"L",
@@ -102,7 +102,7 @@ class ReportControl extends Controller
     }
     
     function rpt_buku_tersedia(){
-        $buku = DB::select('select tb_koleksi_buku.no_induk_buku,tb_buku.judul,tb_kategori.nama_kategori,tb_rak.nama_rak,tb_buku.ISBN,tb_koleksi_buku.status from tb_buku,tb_koleksi_buku,tb_kategori,tb_rak where tb_buku.kd_kategori=tb_kategori.kd_kategori and tb_buku.kd_buku=tb_koleksi_buku.kd_buku and tb_koleksi_buku.kd_rak=tb_rak.kd_rak and status = 0');
+        $buku = DB::select('select tb_koleksi_buku.no_induk_buku,tb_buku.judul,tb_kategori.nama_kategori,tb_rak.nama_rak,tb_buku.ISBN,tb_koleksi_buku.STATUS,tb_peminjaman.tgl_pinjam from tb_buku,tb_koleksi_buku,tb_kategori,tb_rak,tb_peminjaman where tb_buku.kd_kategori=tb_kategori.kd_kategori and tb_buku.kd_buku=tb_koleksi_buku.kd_buku and tb_koleksi_buku.kd_rak=tb_rak.kd_rak AND tb_koleksi_buku.no_induk_buku=tb_peminjaman.no_induk_buku and tb_koleksi_buku.status = 0 and month(NOW())=MONTH(CURDATE())');
         $content = view('report.rpt_buku_tersedia',compact('buku'));
         $pdf = new MPdf([
             'orientation'=>"L",

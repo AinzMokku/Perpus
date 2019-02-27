@@ -47,20 +47,20 @@ class UsersControl extends Controller
             ]);
             $anggota->save();
         } else {
-            $anggota = MAnggota::where("kd_anggota",$req->get("kd_anggota"));
+            $anggota = User::where("id",$req->get("id"));
             $anggota->update([
                 'name'          => $req->get('name'),
                 'alamat'        => $req->get('alamat'),
                 'telp'          => $req->get('telp'),
                 'email'         => $req->get('email'),
                 'level'         => $req->get('level'),
-                'password' => $req->get('password')!="" ? md5($req->get('password')) : $req->get('old_password'),
+                'password'      => $req->get('password')!="" ? md5($req->get('password')) : $req->get('old_password'),
                 'avatar'        => $nama_foto,
             ]);
 
         }
-        if($req->file('avatar')){
-            $avatar->move(public_path()."/img", $nama_avatar);
+        if($req->file('foto')){
+            $foto->move(public_path()."/img", $nama_foto);
         }
             return redirect('user');
     }
